@@ -2,8 +2,6 @@
 __pycache__
 .DS_Store
 
-.streamlit/secrets.toml
-
 streamlitapp/
 
 docs/
