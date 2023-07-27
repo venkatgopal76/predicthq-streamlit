@@ -2,7 +2,7 @@ import datetime
 import requests
 import streamlit as st
 from predicthq import Client
-from typing import Iterable
+
 
 ATTENDED_CATEGORIES = [
     "community",
@@ -32,8 +32,8 @@ UNSCHEDULED_CATEGORIES = [
 # Some of the possible phq_attendance features are commented out below to match what
 # we do in our Location Insights product. You can uncomment them to include them in.
 PHQ_ATTENDANCE_FEATURES = [
-    # "phq_attendance_academic_graduation",
-    # "phq_attendance_academic_social",
+    "phq_attendance_academic_graduation",
+    "phq_attendance_academic_social",
     "phq_attendance_community",
     "phq_attendance_concerts",
     "phq_attendance_conferences",
@@ -46,14 +46,11 @@ PHQ_ATTENDANCE_FEATURES = [
 
 
 def get_api_key():
-    # return st.secrets["api_key"]
-    api_key = "wYYoRnRco_JI6rY6FOYdIbwBhGGlBP2nM8WKAMG2"
-    return api_key
+    return st.secrets["api_key"]
 
 
 def get_predicthq_client():
     api_key = get_api_key()
-    api_key = "wYYoRnRco_JI6rY6FOYdIbwBhGGlBP2nM8WKAMG2"
     phq = Client(access_token=api_key)
 
     return phq
