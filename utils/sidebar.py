@@ -28,11 +28,11 @@ def show_sidebar_options():
                 break
 
     location = st.sidebar.selectbox(
-        "Hotel",
+        "location",
         locations,
         index=index,
         format_func=lambda x: x["name"],
-        help="Select the hotel location.",
+        help="Select the location.",
         disabled=get_api_key() is None,
         key="location",
     )
@@ -92,7 +92,7 @@ def show_sidebar_options():
     # Allow changing the radius if needed (default to suggested radius)
     # The Suggested Radius API is used to determine the best radius to use for the given location and industry
     st.sidebar.slider(
-        f"Suggested Radius around hotel ({radius_unit})",
+        f"Suggested Radius around location ({radius_unit})",
         0.0,
         10.0,
         2.0,
